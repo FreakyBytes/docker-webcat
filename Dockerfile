@@ -25,5 +25,6 @@ RUN chmod +x /usr/bin/start-webcat.sh
 
 # preparing storage dir
 RUN mkdir -p /var/webcat/data && chown tomcat7:tomcat7 -R /var/webcat
+VOLUME ["/var/webcat"]
 
 ENTRYPOINT ["/usr/bin/start-webcat.sh"]
