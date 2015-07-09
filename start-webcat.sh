@@ -15,4 +15,4 @@ then
 fi
 
 # starting tomcat start script
-/usr/bin/tomcat-start.sh
+/usr/bin/start-tomcat.sh
