@@ -14,10 +14,16 @@ EXPOSE 8080
 #    apt-get install -y curl gawk
 
 # add war file
-ADD webcat.war /var/lib/tomcat7/webapp-cat/webcat.war
+COPY webcat.war /var/lib/tomcat7/webapp-cat/webcat.war
 # add custom server.xml
-ADD server.xml /var/lib/tomcat7/conf/server.xml
+COPY server.xml /var/lib/tomcat7/conf/server.xml
 # add custom context.xml
-ADD context.xml /var/lib/tomcat7/conf/Catalina/webcat/webcat.xml
+COPY context.xml /var/lib/tomcat7/conf/Catalina/webcat/webcat.xml
+# add helper script
+COPY start-webcat.sh /usr/bin/start-webcat.sh
+RUN chmod +x /usr/bin/start-webcat.sh
 
-ENTRYPOINT ["/opt/start-tomcat.sh"]
+# preparing storage dir
+RUN mkdir -p /var/webcat/data && chown tomcat7:tomcat7 -R /var/webcat
+
+ENTRYPOINT ["/usr/bin/start-webcat.sh"]
