@@ -7,6 +7,7 @@ if [ "$1" = "fetch" ]
 then
 	echo "checking for current webCAT version..."
 	version=$(curl $baseUrl/maven-metadata.xml 2> /dev/null | iconv -f utf-8 | gawk "BEGIN{ ver=0; } { if( match(\$0, /<version>(.*)<\/version>/, grp) ) ver=grp[1]; } END { print ver; }")
+	echo $version > webcat.version
 	echo "downloading version  $version"
 	rm -f ./$webcatFile
 	curl -o "./$webcatFile" "$baseUrl/$version/CombineArchiveWeb-${version}.war" 	
