@@ -125,8 +125,8 @@
                resourceName="UserDatabase"/>
       </Realm>
 
-      <Host name="webcat"  appBase="webapp-webcat"
-            unpackWARs="true" autoDeploy="true">
+      <Host name="localhost"  appBase="webapp-webcat"
+            unpackWARs="true" autoDeploy="true" xmlBase="/var/lib/tomcat7/context">
         
         <Context path="" docBase="webcat" debug="0" reloadable="true">
         </Context>

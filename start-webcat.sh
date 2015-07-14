@@ -3,8 +3,8 @@
 if [ -f /config/context.xml ]
 then
 	echo "Loading user context.xml"
-	rm /var/lib/tomcat7/conf/Catalina/webcat/webcat.xml
-	ln -s /config/context.xml /var/lib/tomcat7/conf/Catalina/webcat/webcat.xml
+	rm /var/lib/tomcat7/context/webcat.xml
+	ln -s /config/context.xml /var/lib/tomcat7/context/webcat.xml
 fi
 
 if [ -f /config/server.xml ]
