@@ -20,6 +20,9 @@ then
 		# fetching
 		./build.sh fetch
 	fi
+	
+	version=$(cat webcat.version)
+	echo "building docker image with webCAT version $version"
 
 	echo "build docker image"
 	docker build -t webcat .	
