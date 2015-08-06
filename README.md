@@ -9,3 +9,6 @@ To build this container make use of the build-script, which features two command
 
 The fetch downloads the latest version of the webcat.war from the SEMS maven repository.
 Whereas the build command starts the actuall build and automated tagging of the docker container.
+
+## Run
+  docker run -it --cap-add SYS_PTRACE -p 8080:8080 freakybytes/webcat:latest
