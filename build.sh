@@ -25,7 +25,7 @@ then
 	echo "building docker image with webCAT version $version"
 
 	echo "build docker image"
-	docker build -t webcat .	
+	docker build -t freakybytes/webcat:${version} . 
 
 else
 	echo "usage:"
