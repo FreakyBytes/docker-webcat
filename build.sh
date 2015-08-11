@@ -27,6 +27,13 @@ then
 	echo "build docker image"
 	docker build -t freakybytes/webcat:${version} . 
 
+elif [ "$1" = "run" ]
+then
+
+	version=$(cat webcat.version)
+	echo "running webCAT version $version"
+	docker run -it --cap-add SYS_PTRACE -v /var/webcat webcat-persist -p 8080:8080 feakybytes/webcat:${version}
+
 else
 	echo "usage:"
 	echo "    build.sh fetch               - Downloads the current webCAT version"
