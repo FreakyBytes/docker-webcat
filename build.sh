@@ -38,6 +38,7 @@ else
 	echo "usage:"
 	echo "    build.sh fetch               - Downloads the current webCAT version"
 	echo "    build.sh build               - start building the docker image, downloads webCAT if necessary"
+	echo "    build.sh run                 - runs the docker container in a demo configuration and exits bash"
 fi
 
 
