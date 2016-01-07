@@ -1,3 +1,4 @@
 *.swp
 webcat.war
 webcat.version
+webcat-persist/

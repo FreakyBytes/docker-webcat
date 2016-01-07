@@ -31,8 +31,13 @@ elif [ "$1" = "run" ]
 then
 
 	version=$(cat webcat.version)
+	persist=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+	persist=${persist}/webcat-persist
+
 	echo "running webCAT version $version"
-	docker run -it --cap-add SYS_PTRACE -v /var/webcat webcat-persist -p 8080:8080 feakybytes/webcat:${version}
+	echo "persist directory is $persist"
+	mkdir $persist
+	docker run -it --cap-add SYS_PTRACE -v /var/webcat:$persist -p 8080:8080 freakybytes/webcat:${version}
 
 else
 	echo "usage:"
